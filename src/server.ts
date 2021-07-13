@@ -15,8 +15,9 @@ app.use(userRoutes, recadoRoutes);
 
 const init = async () => {
   await new Database().openConnection();
-  app.listen(process.env.PORT || 3000, () => {
-    console.log("Rodando");
+  const port = process.env.PORT || 3000;
+  app.listen(port, () => {
+    console.log(`Rodando on port ${port}`);
   });
 };
 
