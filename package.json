@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
     "build": "npx tsc",
+    "start": "node -r dotenv/config ./dist/index.js",
     "migration:show": "ts-node --transpile-only node_modules/typeorm/cli.js migration:show",
     "migration": "ts-node-dev --transpile-only node_modules/typeorm/cli.js migration:run",
     "migration:revert": "ts-node-dev --transpile-only node_modules/typeorm/cli.js migration:revert"
