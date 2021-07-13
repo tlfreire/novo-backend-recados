@@ -46,7 +46,7 @@ var CreateTableUsers1626109992599 = /** @class */ (function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, queryRunner.createTable(new typeorm_1.Table({
-                            name: "users",
+                            name: "user",
                             columns: [
                                 {
                                     name: "id",
@@ -80,7 +80,7 @@ var CreateTableUsers1626109992599 = /** @class */ (function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, queryRunner.dropTable("users")];
+                    case 0: return [4 /*yield*/, queryRunner.dropTable("user")];
                     case 1:
                         _a.sent();
                         return [2 /*return*/];

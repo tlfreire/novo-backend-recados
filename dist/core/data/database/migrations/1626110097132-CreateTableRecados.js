@@ -46,7 +46,7 @@ var CreateTableRecados1626110097132 = /** @class */ (function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, queryRunner.createTable(new typeorm_1.Table({
-                            name: "recados",
+                            name: "recado",
                             columns: [
                                 {
                                     name: "id",
@@ -76,7 +76,7 @@ var CreateTableRecados1626110097132 = /** @class */ (function () {
                                 new typeorm_1.TableForeignKey({
                                     columnNames: ["id_user"],
                                     referencedColumnNames: ["id"],
-                                    referencedTableName: "users",
+                                    referencedTableName: "user",
                                 }),
                             ],
                         }))];
