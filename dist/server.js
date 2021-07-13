@@ -51,13 +51,15 @@ var userRoutes = new UserRoutes_1.default().init();
 var recadoRoutes = new RecadoRoutes_1.default().init();
 app.use(userRoutes, recadoRoutes);
 var init = function () { return __awaiter(void 0, void 0, void 0, function () {
+    var port;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0: return [4 /*yield*/, new Database_1.default().openConnection()];
             case 1:
                 _a.sent();
-                app.listen(process.env.PORT || 3000, function () {
-                    console.log("Rodando");
+                port = process.env.PORT || 3000;
+                app.listen(port, function () {
+                    console.log("Rodando on port " + port);
                 });
                 return [2 /*return*/];
         }
