@@ -20,14 +20,8 @@ export default class RecadoController {
   }
 
   public async index(req: Request, res: Response) {
-    const { id, userId }: { userId?: string, id?: string } = req.params;
+    const { id }: { id?: string } = req.params;
 
-    const user = await User.findOne(userId);
-    if (!user) {
-      return res.status(404).json({
-        msg: "Usuario não encontrado",
-      });
-    }
     const recado = await Recado.find();
 
     return res.json(recado);
