@@ -67,22 +67,14 @@ var RecadoController = /** @class */ (function () {
     };
     RecadoController.prototype.index = function (req, res) {
         return __awaiter(this, void 0, void 0, function () {
-            var _a, id, userId, user, recado;
-            return __generator(this, function (_b) {
-                switch (_b.label) {
+            var id, recado;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
                     case 0:
-                        _a = req.params, id = _a.id, userId = _a.userId;
-                        return [4 /*yield*/, User_1.User.findOne(userId)];
-                    case 1:
-                        user = _b.sent();
-                        if (!user) {
-                            return [2 /*return*/, res.status(404).json({
-                                    msg: "Usuario não encontrado",
-                                })];
-                        }
+                        id = req.params.id;
                         return [4 /*yield*/, Recado_1.Recado.find()];
-                    case 2:
-                        recado = _b.sent();
+                    case 1:
+                        recado = _a.sent();
                         return [2 /*return*/, res.json(recado)];
                 }
             });

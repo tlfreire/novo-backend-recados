@@ -2,18 +2,13 @@
   "name": "back-end-recados",
   "version": "1.0.0",
   "main": "server.js",
-  "engines": {
-    "node": "10.19.0"
-  },
   "license": "MIT",
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
-    "build": "tsc",
-    "postbuild": "migration:prod",
-    "start": "node ./dist/server.js",
+    "build": "npx tsc",
+    "start": "node dist/server.js",
     "migration:show": "ts-node --transpile-only node_modules/typeorm/cli.js migration:show",
     "migration": "ts-node-dev --transpile-only node_modules/typeorm/cli.js migration:run",
-    "migration:prod": "cross-env NODE_ENV=production npx typeorm migration:run",
     "migration:revert": "ts-node-dev --transpile-only node_modules/typeorm/cli.js migration:revert"
   },
   "devDependencies": {

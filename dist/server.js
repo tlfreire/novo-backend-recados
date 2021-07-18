@@ -40,12 +40,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var express_1 = __importDefault(require("express"));
+var cors_1 = __importDefault(require("cors"));
 var Database_1 = __importDefault(require("./core/data/connections/Database"));
 var RecadoRoutes_1 = __importDefault(require("./features/recado/routes/RecadoRoutes"));
 var UserRoutes_1 = __importDefault(require("./features/user/routes/UserRoutes"));
 var app = express_1.default();
 // Receber json no corpo da Requisição
 app.use(express_1.default.json());
+app.use(cors_1.default());
 // Vincular as rotas
 var userRoutes = new UserRoutes_1.default().init();
 var recadoRoutes = new RecadoRoutes_1.default().init();
