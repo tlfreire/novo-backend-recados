@@ -15,12 +15,13 @@ module.exports = {
             rejectUnauthorized: false
         }
     },
-    entities: [
-        'src/core/data/database/entities/**/*'
-    ],
     migrations: [
-        'src/core/data/database/migrations/**/*'
+        `${process.env.DB_PATH}/migrations/**/*`
     ],
+    entities: [
+        `${process.env.DB_PATH}/entities/**/*`
+    ],
+    
     
     cli: {
         entitiesDir: 'src/core/data/database/entities',
