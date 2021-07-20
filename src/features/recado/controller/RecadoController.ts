@@ -14,7 +14,7 @@ export default class RecadoController {
       });
     }
     
-    const recado = await new Recado(detalhe, descricao, parseInt(userId)).save();
+    const recado = await new Recado(descricao, detalhe, parseInt(userId)).save();
     
     return res.status(200).json(recado);
   }
