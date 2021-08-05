@@ -1,25 +1,12 @@
-import express from "express";
-import cors from "cors";
-import Database from "./core/data/connections/Database";
-import RecadoRoutes from "./features/recado/routes/RecadoRoutes";
-import UserRoutes from "./features/user/routes/UserRoutes";
+import "reflect-metadata";
+import Database from "./core/infra/data/connections/database";
+import { Redis } from "./core/infra/data/connections/redis";
+import App from "./core/presentation/app";
 
-const app = express();
-// Receber json no corpo da Requisição
-app.use(express.json());
-app.use(cors());
-
-// Vincular as rotas
-const userRoutes = new UserRoutes().init();
-const recadoRoutes = new RecadoRoutes().init();
-app.use(userRoutes, recadoRoutes);
-
-const init = async () => {
-  await new Database().openConnection();
-  const port = process.env.PORT || 3000;
-  app.listen(port, () => {
-    console.log(`Rodando on port ${port}`);
-  });
-};
-
-init();
+Promise.all([new Database().openConnection(), new Redis().openConnection()])
+  .then(() => {
+    const app = new App();
+    app.init();
+    app.start(8080);
+  })
+  .catch(console.error);
