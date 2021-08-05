@@ -11,13 +11,13 @@ module.exports = {
         }
     },
     entities: [
-        'src/core/infra/data/database/entities/**/*'
+        `${process.env.DB_PATH}/entities/**/*`
     ],
     migrations: [
-        'src/core/infra/data/database/migrations/**/*'
+        `${process.env.DB_PATH}/migrations/**/*`
     ],
     cli: {
         entitiesDir: 'src/core/infra/data/database/entities',
         migrationsDir: 'src/core/infra/data/database/migrations'
     }
-}
+} 
